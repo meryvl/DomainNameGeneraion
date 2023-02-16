@@ -1,11 +1,35 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
+//write your code here
+const pronouns = ["the", "your", "every", "one", "such"];
+const adjs = [
+  "great",
+  "adventurous",
+  "arrogant",
+  "charming",
+  "creepy",
+  "grotesque",
+  "hungry"
+];
+const nouns = ["sitcom", "lotus", "cubes", "planet"];
+const domains = [".com", ".us", ".es", ".net", ".shop"];
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+pronouns.forEach(pronoun =>
+  adjs.forEach(adj =>
+    nouns.forEach(noun =>
+      domains.forEach(function(domain) {
+        const domainLength = domain.length - 1;
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
-};
+        if (noun.substring(noun.length - domainLength) == domain.substring(1)) {
+          const nounDomainsReplace = noun.replace(
+            noun.substring(noun.length - domainLength),
+            domain
+          );
+          const remplaceNoun = pronoun + adj + nounDomainsReplace;
+          console.log(remplaceNoun);
+        } else {
+          const domainComplit = pronoun + adj + noun + domain;
+          console.log(domainComplit);
+        }
+      })
+    )
+  )
+);
